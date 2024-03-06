@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:social_vk/widgets/auth/friends_list/friends_list_widget.dart';
 
 class MainScreeWidget extends StatefulWidget {
   const MainScreeWidget({super.key});
@@ -12,9 +13,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
   int _currentIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Friends',
-    ),
+    FriendsListWidgets(),
     Text(
       'Groups',
     ),

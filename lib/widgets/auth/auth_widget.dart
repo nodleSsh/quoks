@@ -121,6 +121,13 @@ class __FormWidgetState extends State<_FormWidget> {
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
               ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: const BorderSide(
+                  color: Color.fromARGB(255, 87, 87, 125),
+                  width: 2,
+                ),
+              ),
             ),
           ),
           const SizedBox(
@@ -139,6 +146,13 @@ class __FormWidgetState extends State<_FormWidget> {
               isCollapsed: false,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(25),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25),
+                borderSide: const BorderSide(
+                  color: Color.fromARGB(255, 87, 87, 125),
+                  width: 2,
+                ),
               ),
             ),
           ),
