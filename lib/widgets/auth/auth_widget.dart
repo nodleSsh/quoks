@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:social_vk/widgets/auth/main_screen/main_screen_widget.dart';
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({super.key});

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:social_vk/widgets/auth/friends_list/friends_list_widget.dart';
 
 class MainScreeWidget extends StatefulWidget {
