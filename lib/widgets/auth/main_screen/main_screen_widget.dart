@@ -11,16 +11,6 @@ class MainScreeWidget extends StatefulWidget {
 class _MainScreeWidgetState extends State<MainScreeWidget> {
   int _currentIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    FriendsListWidgets(),
-    Text(
-      'Groups',
-    ),
-    Text(
-      'My profile',
-    ),
-  ];
-
   void onSelectItem(int index) {
     if (_currentIndex == index) return;
     setState(() {
@@ -41,13 +31,22 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'quoka',
+            'My friends',
             style: logoStyle,
           ),
         ),
       ),
-      body: Center(
-        child: _widgetOptions[_currentIndex],
+      body: IndexedStack(
+        index: _currentIndex,
+        children: const [
+          FriendsListWidgets(),
+          Text(
+            'Groups',
+          ),
+          Text(
+            'My profile',
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
