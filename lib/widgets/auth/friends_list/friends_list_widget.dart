@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/resources/resources.dart';
+import 'package:social_vk/widgets/auth/friend_details/friend_details_widget.dart';
 
 class Friends {
+  final int id;
   final String avatar;
   final String name;
   final String status;
-  Friends({required this.avatar, required this.name, required this.status});
+  Friends(
+      {required this.avatar,
+      required this.name,
+      required this.status,
+      required this.id});
 }
 
 class FriendsListWidgets extends StatefulWidget {
@@ -18,41 +24,49 @@ class FriendsListWidgets extends StatefulWidget {
 class _FriendsListWidgetsState extends State<FriendsListWidgets> {
   final _friends = [
     Friends(
+      id: 1,
       avatar: AppImages.avatar,
       name: 'Anna Pekun',
       status: 'Online',
     ),
     Friends(
+      id: 2,
       avatar: AppImages.avatar,
       name: 'Olga Orlova',
       status: 'Online',
     ),
     Friends(
+      id: 3,
       avatar: AppImages.avatar,
       name: 'Patrick Salmon',
       status: 'Offline',
     ),
     Friends(
+      id: 4,
       avatar: AppImages.avatar,
       name: 'Din Jarin',
       status: 'Online',
     ),
     Friends(
+      id: 5,
       avatar: AppImages.avatar,
       name: 'Vaselina Rocks',
       status: 'Offline',
     ),
     Friends(
+      id: 6,
       avatar: AppImages.avatar,
       name: 'Daniil Kroks',
       status: 'Offline',
     ),
     Friends(
+      id: 7,
       avatar: AppImages.avatar,
       name: 'Lena Lena',
       status: 'Oflline',
     ),
     Friends(
+      id: 8,
       avatar: AppImages.avatar,
       name: 'Tani Kate',
       status: 'Offline',
@@ -79,6 +93,14 @@ class _FriendsListWidgetsState extends State<FriendsListWidgets> {
     super.initState();
     _filtredFriends = _friends;
     _searchController.addListener(_searchFriends);
+  }
+
+  void _onFriendTap(int index) {
+    final id = _friends[index].id;
+    Navigator.of(context).pushNamed(
+      '/main_screen/friend_details_widget',
+      arguments: id,
+    );
   }
 
   final statusStyle = const TextStyle(
@@ -166,9 +188,7 @@ class _FriendsListWidgetsState extends State<FriendsListWidgets> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(50),
-                      onTap: () {
-                        print('Choise people');
-                      },
+                      onTap: () => _onFriendTap(index),
                     ),
                   ),
                 ],

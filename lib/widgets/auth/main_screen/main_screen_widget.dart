@@ -20,7 +20,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
 
   final logoStyle = const TextStyle(
     color: Colors.white,
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: FontWeight.w600,
   );
 
@@ -31,7 +31,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
       appBar: AppBar(
         title: Center(
           child: Text(
-            'My friends',
+            'qk',
             style: logoStyle,
           ),
         ),
