@@ -102,7 +102,7 @@ class __FormWidgetState extends State<_FormWidget> {
             'Login',
             style: TextStyle(
                 fontSize: 25,
-                color: Color.fromARGB(255, 43, 43, 43),
+                color: Color.fromARGB(255, 148, 46, 46),
                 fontWeight: FontWeight.w500),
           ),
           const SizedBox(
