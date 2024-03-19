@@ -18,6 +18,9 @@ class FriendsDetailsInfoWidget extends StatelessWidget {
             height: 20,
           ),
           FriendStatusWidget(),
+          SizedBox(
+            height: 20,
+          ),
           InteractionWidgetFriend(),
         ],
       ),
@@ -129,12 +132,82 @@ class InteractionWidgetFriend extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TextButton(
-          style: ButtonStyle(),
-          onPressed: () {},
-          child: const Text(
-            'Send message',
+        Expanded(
+          flex: 5,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 117, 120, 127),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+            ),
+            onPressed: () {},
+            child: const Text(
+              'Send message',
+              style: TextStyle(
+                color: Color.fromARGB(255, 236, 235, 235),
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          flex: 1,
+          child: IconButton(
+            style: IconButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                )),
+            onPressed: () {},
+            icon: const Icon(Icons.call_outlined),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          flex: 1,
+          child: IconButton(
+            style: IconButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                )),
+            onPressed: () {},
+            icon: const Icon(Icons.person_outline),
+          ),
+        ),
+        const SizedBox(
+          width: 8,
+        ),
+        Expanded(
+          flex: 1,
+          child: TextButton(
+            style: IconButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                )),
+            onPressed: () {},
+            child: const Text(
+              '...',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            ),
           ),
         ),
       ],
