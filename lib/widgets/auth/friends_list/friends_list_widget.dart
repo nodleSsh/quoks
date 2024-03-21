@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/resources/resources.dart';
-import 'package:social_vk/widgets/auth/friend_details/friend_details_widget.dart';
 
 class Friends {
   final int id;

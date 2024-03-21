@@ -5,4 +5,5 @@ class AppImages {
 
   static const String avatar = 'images/avatar.jpg';
   static const String chat = 'images/chat.png';
+  static const String friend1 = 'images/friend1.jpg';
 }

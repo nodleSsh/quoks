@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/resources/resources.dart';
+import 'package:social_vk/widgets/auth/friend_details/friends_details_mainLis_friendt_widget.dart';
 
 class FriendsDetailsInfoWidget extends StatelessWidget {
   const FriendsDetailsInfoWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 10),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          AvatarProfileWidget(),
-          SizedBox(
-            height: 20,
-          ),
-          FriendStatusWidget(),
-          SizedBox(
-            height: 20,
-          ),
-          InteractionWidgetFriend(),
-        ],
-      ),
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 30,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 0),
+          child: AvatarProfileWidget(),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
+          child: FriendStatusWidget(),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
+          child: InteractionWidgetFriend(),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        FriendsDetailsMainLisFriendtWidget(),
+      ],
     );
   }
 }
+
+// padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 10),
 
 class AvatarProfileWidget extends StatelessWidget {
   const AvatarProfileWidget({super.key});
@@ -115,6 +129,7 @@ class FriendStatusWidget extends StatelessWidget {
               width: 10,
             ),
             const Icon(
+              //тут заменить на iconButton
               Icons.info_outline,
               color: Color.fromARGB(255, 117, 120, 127),
               size: 20,
@@ -163,12 +178,13 @@ class InteractionWidgetFriend extends StatelessWidget {
           flex: 1,
           child: IconButton(
             style: IconButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                )),
+              backgroundColor: const Color.fromARGB(255, 196, 200, 212),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+            ),
             onPressed: () {},
             icon: const Icon(Icons.call_outlined),
           ),

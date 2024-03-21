@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/widgets/auth/friends_list/friends_list_widget.dart';
+import 'package:social_vk/widgets/auth/main_screen/main_screen_profile.dart';
 
 class MainScreeWidget extends StatefulWidget {
   const MainScreeWidget({super.key});
@@ -31,6 +32,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
       appBar: AppBar(
         title: Center(
           child: Text(
+            // тут сделать чтобы менялось динамически надпись при открытии опрделенного виджета
             'qk',
             style: logoStyle,
           ),
@@ -43,9 +45,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
           Text(
             'Groups',
           ),
-          Text(
-            'My profile',
-          ),
+          MainScreenProfile(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
