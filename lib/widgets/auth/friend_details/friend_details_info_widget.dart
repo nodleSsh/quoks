@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/resources/resources.dart';
+import 'package:social_vk/style/text_style.dart';
 import 'package:social_vk/widgets/auth/friend_details/friends_details_mainLis_friendt_widget.dart';
 
 class FriendsDetailsInfoWidget extends StatelessWidget {
@@ -7,40 +8,39 @@ class FriendsDetailsInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 0),
           child: AvatarProfileWidget(),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
           child: FriendStatusWidget(),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Padding(
-          padding: EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
+          padding:
+              const EdgeInsets.only(top: 0, left: 10, right: 10, bottom: 0),
           child: InteractionWidgetFriend(),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
-        FriendsDetailsMainLisFriendtWidget(),
+        const FriendsDetailsMainLisFriendtWidget(),
       ],
     );
   }
 }
-
-// padding: EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 10),
 
 class AvatarProfileWidget extends StatelessWidget {
   const AvatarProfileWidget({super.key});
@@ -73,15 +73,9 @@ class FriendStatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //вынести в отдельный объект при рефакторе
-    final textStyls = TextStyle(
-      color: Color.fromARGB(255, 117, 120, 127),
-      fontWeight: FontWeight.w600,
-      fontSize: 15,
-    );
-    return Column(
+    return const Column(
       children: [
-        const Text(
+        Text(
           'Try and shoot for the moon. Even if you miss, you’ll land among the stars',
           style: TextStyle(
             fontSize: 17,
@@ -92,46 +86,46 @@ class FriendStatusWidget extends StatelessWidget {
           maxLines: 3,
           overflow: TextOverflow.fade,
         ),
-        const SizedBox(
+        SizedBox(
           height: 10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
+            Icon(
               Icons.place_outlined,
-              color: Color.fromARGB(255, 117, 120, 127),
+              color: TextStylesProject.iconColor,
               size: 20,
             ),
-            const SizedBox(
+            SizedBox(
               width: 5,
             ),
             Text(
               'Moscow',
-              style: textStyls,
+              style: TextStylesProject.textStyls,
             ),
-            const SizedBox(
+            SizedBox(
               width: 10,
             ),
-            const Icon(
+            Icon(
               Icons.school_outlined,
-              color: Color.fromARGB(255, 117, 120, 127),
+              color: TextStylesProject.iconColor,
               size: 20,
             ),
-            const SizedBox(
+            SizedBox(
               width: 5,
             ),
             Text(
               'HTG',
-              style: textStyls,
+              style: TextStylesProject.textStyls,
             ),
-            const SizedBox(
+            SizedBox(
               width: 10,
             ),
-            const Icon(
+            Icon(
               //тут заменить на iconButton
               Icons.info_outline,
-              color: Color.fromARGB(255, 117, 120, 127),
+              color: TextStylesProject.iconColor,
               size: 20,
             ),
           ],
@@ -142,7 +136,16 @@ class FriendStatusWidget extends StatelessWidget {
 }
 
 class InteractionWidgetFriend extends StatelessWidget {
-  const InteractionWidgetFriend({super.key});
+  InteractionWidgetFriend({super.key});
+
+  final iconsStyle = IconButton.styleFrom(
+    backgroundColor: const Color.fromARGB(255, 196, 200, 212),
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(10),
+      ),
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -177,14 +180,7 @@ class InteractionWidgetFriend extends StatelessWidget {
         Expanded(
           flex: 1,
           child: IconButton(
-            style: IconButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 196, 200, 212),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
-              ),
-            ),
+            style: iconsStyle,
             onPressed: () {},
             icon: const Icon(Icons.call_outlined),
           ),
@@ -195,13 +191,7 @@ class InteractionWidgetFriend extends StatelessWidget {
         Expanded(
           flex: 1,
           child: IconButton(
-            style: IconButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                )),
+            style: iconsStyle,
             onPressed: () {},
             icon: const Icon(Icons.person_outline),
           ),
@@ -212,13 +202,7 @@ class InteractionWidgetFriend extends StatelessWidget {
         Expanded(
           flex: 1,
           child: TextButton(
-            style: IconButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 196, 200, 212),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
-                  ),
-                )),
+            style: iconsStyle,
             onPressed: () {},
             child: const Text(
               '...',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_vk/style/text_style.dart';
 
 class AuthWidget extends StatefulWidget {
   const AuthWidget({super.key});
@@ -52,32 +53,26 @@ class __FormWidgetState extends State<_FormWidget> {
 
   @override
   Widget build(BuildContext context) {
-    //start Вот тут стили текста запихнуть в один объект, чтобы не засорять тут код
-    const colorCursor = Color.fromARGB(0, 157, 157, 157);
-
-    const colorElements = Color(0xFF272829);
-
-    const labelstyles = TextStyle(
-      color: Color.fromARGB(255, 135, 135, 135),
-      fontSize: 17,
-      fontWeight: FontWeight.w500,
-    );
-
-    const buttonStyle = TextStyle(
-      color: colorElements,
-      fontSize: 15,
-      fontWeight: FontWeight.w500,
-    );
-
-    const colorButton = Color.fromARGB(255, 161, 165, 173);
-
-    const textStyleLabel = TextStyle(
-      color: colorElements,
-      fontSize: 17,
-      fontWeight: FontWeight.w500,
-    );
     final errorText = this.errorText;
-    //end Стили текста
+
+    inpuStyle(labelText) {
+      final inputDecorat = InputDecoration(
+        labelText: '$labelText',
+        labelStyle: TextStylesProject.labelStyle,
+        isCollapsed: false,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide: const BorderSide(
+            color: Color.fromARGB(255, 87, 87, 125),
+            width: 2,
+          ),
+        ),
+      );
+      return inputDecorat;
+    }
 
     return Padding(
       padding: const EdgeInsets.symmetric(
@@ -92,7 +87,7 @@ class __FormWidgetState extends State<_FormWidget> {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 '$errorText',
-                style: textStyleLabel,
+                style: TextStylesProject.textStyleLabel,
               ),
             ),
           const Spacer(
@@ -111,23 +106,9 @@ class __FormWidgetState extends State<_FormWidget> {
           TextField(
             //оптимизировать, ниже есть код, ктр повторяется - это не ок
             controller: _loginTextController,
-            cursorColor: colorCursor,
-            style: textStyleLabel,
-            decoration: InputDecoration(
-              labelText: 'Username',
-              labelStyle: labelstyles,
-              isCollapsed: false,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: const BorderSide(
-                  color: Color.fromARGB(255, 87, 87, 125),
-                  width: 2,
-                ),
-              ),
-            ),
+            cursorColor: TextStylesProject.colorCursor,
+            style: TextStylesProject.textStyleLabel,
+            decoration: inpuStyle('Username'),
           ),
           const SizedBox(
             height: 20,
@@ -137,23 +118,9 @@ class __FormWidgetState extends State<_FormWidget> {
             controller: _passwordTextController,
             obscureText: true,
             cursorHeight: null,
-            cursorColor: colorCursor,
-            style: textStyleLabel,
-            decoration: InputDecoration(
-              labelText: 'Password',
-              labelStyle: labelstyles,
-              isCollapsed: false,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: const BorderSide(
-                  color: Color.fromARGB(255, 87, 87, 125),
-                  width: 2,
-                ),
-              ),
-            ),
+            cursorColor: TextStylesProject.colorCursor,
+            style: TextStylesProject.textStyleLabel,
+            decoration: inpuStyle('Password'),
           ),
           const SizedBox(
             height: 20,
@@ -164,7 +131,8 @@ class __FormWidgetState extends State<_FormWidget> {
               TextButton(
                 onPressed: _auth,
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(colorButton),
+                  backgroundColor:
+                      MaterialStateProperty.all(TextStylesProject.colorButton),
                 ),
                 child: const Padding(
                   padding:
@@ -173,7 +141,7 @@ class __FormWidgetState extends State<_FormWidget> {
                     'Login',
                     style: TextStyle(
                       fontSize: 17,
-                      color: colorElements,
+                      color: TextStylesProject.colorElements,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -183,7 +151,7 @@ class __FormWidgetState extends State<_FormWidget> {
                 onPressed: _resetPassword,
                 child: const Text(
                   'Reset password',
-                  style: buttonStyle,
+                  style: TextStylesProject.buttonStyle,
                 ),
               ),
             ],
@@ -195,7 +163,7 @@ class __FormWidgetState extends State<_FormWidget> {
                 onPressed: () {},
                 child: const Text(
                   'Register',
-                  style: buttonStyle,
+                  style: TextStylesProject.buttonStyle,
                 ),
               ),
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/resources/resources.dart';
+import 'package:social_vk/style/text_style.dart';
 
 class Friends {
   final int id;
@@ -102,11 +103,6 @@ class _FriendsListWidgetsState extends State<FriendsListWidgets> {
     );
   }
 
-  final statusStyle = const TextStyle(
-    fontWeight: FontWeight.w500,
-    color: Color.fromARGB(255, 135, 135, 135),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -155,7 +151,7 @@ class _FriendsListWidgetsState extends State<FriendsListWidgets> {
                                   children: [
                                     Text(
                                       friend.status,
-                                      style: statusStyle,
+                                      style: TextStylesProject.statusStyle,
                                     ),
                                     Text(
                                       friend.name,

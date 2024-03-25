@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_vk/widgets/auth/friends_list/friends_list_widget.dart';
+import 'package:social_vk/widgets/auth/main_screen/main_screen_groups.dart';
 import 'package:social_vk/widgets/auth/main_screen/main_screen_profile.dart';
 
 class MainScreeWidget extends StatefulWidget {
@@ -42,9 +43,7 @@ class _MainScreeWidgetState extends State<MainScreeWidget> {
         index: _currentIndex,
         children: const [
           FriendsListWidgets(),
-          Text(
-            'Groups',
-          ),
+          MainScreenGroups(),
           MainScreenProfile(),
         ],
       ),
